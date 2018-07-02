@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="product.info.price">
+            <!-- Uncomment below to show custom attributes on PDP
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.additional.attributes" template="product/view/additional-attributes.phtml" after="product.info.review">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getBrand</argument>
+                    <argument name="at_code" xsi:type="string">brand</argument>
+                    <argument name="css_class" xsi:type="string">brand</argument>
+                    <argument name="at_label" xsi:type="string">default</argument>
+                    <argument name="add_attribute" xsi:type="string">itemprop="brand"</argument>
+                </arguments>
+            </block> -->
+        </referenceContainer>
+
+        <referenceContainer name="product.info.form.content">
+            <!-- Uncomment below to show stock information and stock USP information on PDP -->
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.stock" template="product/view/stock.phtml" after="product.info.addtocart" />
+        </referenceContainer>
+
+        <referenceBlock name="catalog.product.related">
+            <arguments>
+                <!-- Activate below for visual buttons on related products -->
+                <argument name="css_class" xsi:type="string">visual-buttons</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

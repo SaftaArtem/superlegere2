@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="string">272</argument>
+                <argument name="logo_img_height" xsi:type="string">29</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="top.links">
+            <arguments>
+                <argument name="template" xsi:type="string">Magento_Theme::html/account_links.phtml</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="container.fluid">
+            <block class="Magento\Framework\View\Element\Template" name="ves_header" template="Magento_Theme::html/ves_header.phtml"  before="-">
+                <block class="Magento\Cms\Block\Block" name="menu-top" as="menutop">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">fasony-menutop</argument>
+                    </arguments>
+                </block>
+            </block>
+
+        </referenceContainer>
+        <move element="logo" as="logo" destination="ves_header"/>
+
+        <move element="navigation.sections" destination="ves_header" as="catalog.topnav"/>
+        <move element="top.search" destination="ves_header"/>
+        <move element="form.subscribe" destination="newsletter"/>
+
+        <referenceContainer name="banner">
+            <block class="Magento\Framework\View\Element\Template" name="banner_block" template="Magento_Theme::banner.phtml" />
+        </referenceContainer>
+        <referenceContainer name="instagram">
+            <block class="Magento\Framework\View\Element\Template" name="instagram_block" template="Magento_Theme::instagram.phtml" />
+        </referenceContainer>
+        <referenceContainer name="connect">
+            <block class="Magento\Framework\View\Element\Template" name="connect_block" template="Magento_Theme::connect.phtml" />
+        </referenceContainer>
+
+
+
+    </body>
+</page>
